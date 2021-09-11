@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="./CSS/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="safe_area"></div>
+    <div class="app_screen">
+      <!-- main 화면 -->
+      <main>
+        <!-- header -->
+        <header>
+          <a><img></a>
+          <h1>생활비</h1>
+          <ul>
+            <li aria-label="QR"><button><img></button></li>
+            <li aria-label="검색"><button><img></button></li>
+          </ul>
+        </header>
+        <!-- bank_acct -->
+        <section class="bank_acct">
+          <div class="bank_acct_info">
+            <h3><span>355-68654654-51131</span></h3>
+            <div><span>1,240,000</span>원</div>
+            <div><button>이체</button></div>
+            <div>
+              <div>
+                <input type="range">
+              </div>
+              <button><img /></button>
+              <div><span>5일 동안 210,000원 남음</span></div>
+              <!-- js 구현 => (`${left_day}일남음 {left_won}원 남음`) -->
+            </div>
+          </div>
+        </section>
+        <!-- 공지 -->
+        <div class="notice"><span>지금 낮은 이자로 생활대출을 신청하세요! </span><a>Go</a></div>
+        <section class="bank_use_history">
+          <div class="drag_btn"></div>
+          <!-- 저축 -->
+          <div class="saving">
+            <ul>
+              <li>
+                <span>여행가자!</span>
+                <span>842,200원</span>
+                <div></div>
+              </li>
+              <li>
+                <span>냉장고사기</span>
+                <span>142,200원</span>
+                <div></div>
+              </li>
+              <li>
+                <a><img /><span>저금통 만들기</span></a>
+              </li>
+            </ul>
+          </div>
+          <!-- 내역 -->
+          <div class="use_history_detail">
+            <ul>
+              <!-- 오늘 사용내역 -->
+              <li>
+                <div>
+                  <span>오늘</span>
+                  <span>127,600원</span>
+                </div>
+                <ul>
+                  <li>
+                    <span>미스터피자</span>
+                    <span>32,000</span>
+                  </li>
+                  <li>
+                    <span>택시</span>
+                    <span>4,800</span>
+                  </li>
+                  <li>
+                    <span>이마트</span>
+                    <span>86,000</span>
+                  </li>
+                  <li>
+                    <span>스타벅스</span>
+                    <span>4,800</span>
+                  </li>
+                  <li>
+                    <span>전길수</span>
+                    <span>+ 20,000</span>
+                  </li>
+                </ul>
+              </li>
+              <!-- 어제 사용내역 -->
+              <li>
+                <div>
+                  <span>어제</span>
+                  <span>127,600원</span>
+                </div>
+                <ul>
+                  <li>
+                    <span>미스터피자</span>
+                    <span>32,000</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+      <!-- 지출관리 설정 page -->
+      <div>
+        <h1>지출관리</h1>
+        <section class="set_budget">
+          <h3>기준금액설정</h3>
+          <span>2,100,000원</span>
+          <div>
+            <input type="range">
+          </div>
+        </section>
+        <section class="daily_report">
+          <h3>일간 리포트</h3>
+          <canvas class ="bar_graph"></canvas>
+        </section>
+        <section class="monthly_out_pattern">
+            <h3>6월 지출패턴</h3>
+            <div class ="donut_graph">
+              <canvas></canvas>
+              <div><span>1,736,500</span><span>원</span></div>
+            </div>
+            <ul class ="out_category">
+                <li><img/><span class="left">주유비</span><span class="right">50,000원</span></li>
+                <li><img/><span class="left">건강관리비</span><span class="right">80,000원</span></li>
+                <li><img/><span class="left">외식비</span><span class="right">233,000원</span></li>
+                <li><img/><span class="left">장보기</span><span class="right">390,000원</span></li>
+                <li><img/><span class="left">상점</span><span class="right">46,000원</span></li>
+            </ul>
+        </section>
+        <button>닫기</button>
+      </div>
+    </div>
+      <!-- 하단 메뉴 -->
+      <nav>
+        <ul>
+          <li aria-label="홈버튼"><a><img></a></li>
+          <li aria-label="계좌이동"><a><img></a></li>
+          <li aria-label="메시지"><a><img></a></li>
+          <li aria-label="설정"><a><img></a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+  </html>
+  
+  
+  
