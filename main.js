@@ -17,3 +17,5 @@ inputs.forEach(input => input.addEventListener('change', inputUpdate))
 inputs.forEach(input => input.addEventListener('mousemove', inputUpdate))
 // 모바일
 inputs.forEach(input => input.addEventListener('touchmove', inputUpdate))
+
+ 
