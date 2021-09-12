@@ -1,0 +1,458 @@
+:root {
+  --page_home_bgc: #EEEBE5;
+  --use_history_bgc: #F5F5F5;
+  --nav_bgc: #00C7A3;
+
+  --base_font_fam: Noto Sans CJK KR;
+  --base_font_weight: 500;
+  --base_font_st: normal;
+  --base_font_color: #000000;
+  /* var(); */
+}
+
+/* common */
+a,
+img {
+  display: block;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--base_font_fam);
+  font-weight: var(--base_font_weight);
+  color: var(base_font_color);
+}
+
+/* 화면 전체*/
+.container {
+  width: 375px;
+  height: 812px;
+  position: relative;
+}
+
+/* 화면 상단 디바이스 화면 부분 */
+.container .safe_area {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+
+  position: absolute;
+  top: 0;
+  background-color: var(--page_home_bgc);
+
+}
+
+/* 화면중앙에 해당되는 부분 */
+.container .app_screen {
+  width: 100%;
+  position: absolute;
+  top: 44px;
+  bottom: 58px;
+
+}
+
+.container .app_screen main {
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--page_home_bgc);
+}
+main{
+  position: relative;
+}
+
+/* ? main page - header */
+main header {
+  height: 38px;
+  padding: 12px 30px;
+
+  position: relative;
+}
+
+main header a {
+  float: left;
+}
+
+main header h1 {
+  font-size: 18px;
+  font-weight: 500;
+
+  position: absolute;
+  top: calc(50% - (17.6px)/2);
+  left: calc(50% - (54px / 2));
+}
+
+main header ul {
+  height: 100%;
+  float: right;
+
+  display: flex;
+  align-items: center;
+}
+
+main header ul li {
+
+  float: left;
+
+}
+
+main header ul li+li {
+  margin-left: 18px;
+}
+
+/* ? main page section 1  bank_acct_info */
+main .bank_acct_info {
+  margin-top: 21px;
+  padding: 3px 48px;
+  text-align: center;
+}
+
+/* 계좌 info 박스 */
+main .bank_acct_box {
+  width: 279px;
+  height: 155px;
+  padding: 14px 0 6px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+  font-size: 14px;
+  background-color: #FFF;
+
+  position: relative;
+}
+
+/* 계좌 번호 */
+.bank_acct_box h3 {
+  line-height: 21px;
+  color: #858585;
+}
+
+/* 현재 금액 */
+.bank_acct_box .bank_money {
+  padding: 16px 0;
+}
+
+/* 현재금액 숫자 부분 */
+.bank_acct_box .bank_money .money_num {
+  line-height: 36px;
+  font-size: 24px;
+}
+
+/* 버튼 - 이체 */
+.bank_acct_box .link_send {
+  position: absolute;
+  top: 14px;
+  right: 17px;
+  padding: 0;
+}
+
+/**돈 관리 부분 */
+.bank_acct_box .money_manage {
+  position: relative;
+}
+
+/* input 바 박스 */
+.money_manage .bar_box {
+
+  height: 17px;
+  position: relative;
+}
+
+/* input 바 */
+.money_manage .bar_box input {
+  -webkit-appearance: none;
+  width: 202px;
+  height: 6px;
+  background: #C4C4C4;
+  border-radius: 3px;
+  /* .bar_box에서 중앙정렬을 위해 */
+  position: absolute;
+  top: 3px;
+  left: 32px;
+}
+
+.money_manage .bar_box input:focus {
+  outline: none;
+}
+
+/* input 바 컨트롤 버튼 설정 */
+.money_manage .bar_box input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 17px;
+  background: #FF5F00;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.money_manage .bar_box input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 17px;
+  background: #FF5F00;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* 버튼 - 그래프 */
+.bank_acct_box .link_chart {
+  position: absolute;
+  /* background-color: red; */
+
+  top: 0;
+  right: 19px;
+}
+
+.bank_acct_box .link_chart img {
+  width: 14px;
+  height: 14px;
+}
+
+.bank_acct_box .money_left {
+  margin-top: 8px;
+  line-height: 21px;
+  color: #858585;
+}
+
+/* ? main page  notice 광고부분 */
+
+main .notice {
+  /* width: 262px; */
+  height: 21px;
+  margin: 0 auto;
+  padding: 21px 0;
+  line-height: 21px;
+  font-size: 14px;
+
+  text-align: center;
+}
+
+main .notice span {
+  letter-spacing: -1;
+}
+
+main .notice a {
+  display: inline;
+  margin-left: 6px;
+  text-decoration: underline black;
+}
+
+/*  ? main page section 2 지출내역*/
+section.bank_use_history {
+  height: 360px;
+  padding: 25px 30px 6px;
+  /* box-sizing: border-box; */
+  border-radius: 30px 30px 0px 0px;
+  overflow: hidden; 
+
+  background-color: var(--use_history_bgc);
+  position: relative;
+}
+/* 버튼 눌렀을 때 */
+section.bank_use_history.wide {
+height: 600px;
+position: absolute;
+top:62px;
+left: 0;
+right: 0;
+bottom: 0;
+}
+/* 드래그 버튼 */
+.bank_use_history .drag_btn {
+  width: 48px;
+  height: 2.15px;
+  border-radius: 4px;
+
+  position: absolute;
+  top:4.3px;
+  left: calc(50% - (48px/2) );
+  background-color: #C4C4C4;
+}
+/* 저금통 리스트 */
+.bank_use_history .saving{
+  
+  height: 47px;
+  border-radius: 6px;
+  overflow-x: scroll;
+  /* 스크롤바 제거*/
+  /* Internet Explorer */
+  -ms-overflow-style: none; 
+  /* Firefox 64 */
+  scrollbar-width: none; 
+
+  
+}
+/* Safari, Chrome 에서 스크롤바 제거 */
+ .saving::-webkit-scrollbar {
+  display: none;
+}
+ .saving ul{
+  display: flex;
+
+}
+ .saving ul li{
+  width: 162px;
+  height: 47px;
+  flex-shrink: 0;
+  border-radius: 6px;
+
+  position: relative;
+  background-color: #DADADA;
+}
+ .saving ul li+li{
+  margin-left: 13px;
+}
+.saving ul li span{
+  display: block;
+  background: transparent;
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 18px;
+
+}
+.saving ul li span.__name{
+  top:5px;
+  left:13px;
+}
+.saving ul li span.__num{
+  bottom: 5px;
+  left: 13px;
+}
+
+.saving ul li .color_box{
+  width: 97px;
+  height: 100%;
+  background-color: #FF5F00;
+  border-radius: 6px 0 0 6px;
+}
+/* 저금통 만들기 부분 */
+.saving ul li.new_saving{
+  background-color: transparent;
+}
+.saving ul li.new_saving a{
+  height: inherit;
+  
+  padding: 5px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+}
+.saving ul li.new_saving a img{
+  height: 24px;
+  width: 24px;
+  
+}
+
+.saving ul li.new_saving a span{
+  color: #FF5F00;
+  margin-left: 29px;
+
+}
+
+/* 지출 내역  */
+.bank_use_history{  
+  position: relative;
+}
+.bank_use_history .use_history_detail{
+  
+  margin-top: 16px;
+  padding: 0 6px;
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 76px;
+  right: 30px;
+  left: 30px;
+  bottom: 10px;
+  overflow-y: scroll;
+  /* 스크롤바 제거*/
+  -ms-overflow-style: none;  
+  /* Internet Explorer */
+  scrollbar-width: none;  
+  /* Firefox 64 */
+
+}
+.bank_use_history .use_history_detail::-webkit-scrollbar {
+  display: none;
+}
+.use_history_detail ul.use_list_All > li+li{
+  margin-top: 38px;
+}
+/* 날짜와 지출 합계*/
+.use_history_detail ul.use_list_All  .dayAndSum{
+  overflow:hidden;
+  margin-bottom: 5px;
+}
+.use_history_detail ul.use_list_All  .dayAndSum .__day{
+  float:left;
+  font-weight: 700;
+
+}
+.use_history_detail ul.use_list_All  .dayAndSum .__sum{
+  float: right;
+  color: #B4B4B4;
+}
+
+/* 하루 사용 내역 */
+ul.use_list_All ul.use_list_daily li{
+  /* background-color: lawngreen; */
+  padding: 7px 0;
+  border-bottom: 1px solid #DCDCDC;
+  overflow: hidden;
+  font-size: 18px;
+
+}
+ ul.use_list_All ul.use_list_daily li .__name{
+  font-weight: 350;
+  float: left;
+}
+ ul.use_list_All ul.use_list_daily li .__price{
+  font-weight: 300;
+  float: right;
+}
+/* 입금 내역이라면*/
+ ul.use_list_All ul.use_list_daily li .__price.in::before{
+  content: " + ";
+}
+ ul.use_list_All ul.use_list_daily li .__price.in{
+  color: #FF5F00;
+}
+
+
+/* 하단 네비게이션 */
+.container nav {
+  width: 100%;
+  height: 76px;
+  padding: 15px 30px;
+  box-sizing: border-box;
+
+  position: absolute;
+  bottom: 0;
+
+  background-color: var(--nav_bgc);
+}
+
+.container nav ul {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 1px solid yellow; */
+
+}
+
+.container nav ul li+li {
+  margin-left: 18.044444%;
+}
