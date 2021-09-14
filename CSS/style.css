@@ -1,7 +1,9 @@
 :root {
   --page_home_bgc: #EEEBE5;
+  /* --page_home_bgc:red; */
   --use_history_bgc: #F5F5F5;
   --nav_bgc: #00C7A3;
+  --page_manage_budget_bgc:#FFFFFF;
 
   --base_font_fam: Noto Sans CJK KR;
   --base_font_weight: 500;
@@ -10,17 +12,62 @@
   /* var(); */
 }
 
-/* common */
+/* ! common */
 a,
 img {
   display: block;
 }
+/* 스크롤바 제거*/
+.scroll{
+  -ms-overflow-style: none;  /* Internet Explorer */
+  scrollbar-width: none;  /* Firefox 64 */
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+/* input 바  */
+.bar_box {
 
+  height: 17px;
+  position: relative;
+}
+ .bar_box input {
+  -webkit-appearance: none;
+  background: #C4C4C4;
+  border-radius: 3px;
+  /* .bar_box에서 중앙정렬을 위해 */
+  position: absolute;
+  
+}
+ .bar_box input:focus {
+  outline: none;
+}
+
+ .bar_box input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 17px;
+  background: #FF5F00;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+ .bar_box input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 17px;
+  background: #FF5F00;
+  border-radius: 2px;
+  cursor: pointer;
+}
+a{cursor:pointer;}
+/* ! reset css를 파일로 가져와서 추가하는 것은 어떤가 */
 button {
   background-color: transparent;
   border-style: none;
   margin: 0;
   padding: 0;
+  cursor:pointer;
 }
 
 html {
@@ -53,8 +100,8 @@ html {
   width: 100%;
   position: absolute;
   top: 44px;
-  bottom: 58px;
-
+  bottom: 76px;
+  overflow:hidden ;
 }
 
 .container .app_screen main {
@@ -63,8 +110,10 @@ html {
 
   background-color: var(--page_home_bgc);
 }
+/* ! page 1-main */
 main{
   position: relative;
+  overflow: hidden;
 }
 
 /* ? main page - header */
@@ -84,7 +133,7 @@ main header h1 {
   font-weight: 500;
 
   position: absolute;
-  top: calc(50% - (17.6px)/2);
+  top: calc(50% - (18px)/2);
   left: calc(50% - (54px / 2));
 }
 
@@ -145,7 +194,7 @@ main .bank_acct_box {
 }
 
 /* 버튼 - 이체 */
-.bank_acct_box .link_send {
+.bank_acct_box #link_send {
   position: absolute;
   top: 14px;
   right: 17px;
@@ -157,51 +206,17 @@ main .bank_acct_box {
   position: relative;
 }
 
-/* input 바 박스 */
-.money_manage .bar_box {
 
-  height: 17px;
-  position: relative;
-}
-
-/* input 바 */
-.money_manage .bar_box input {
-  -webkit-appearance: none;
+/* 홈의 input 바 */
+.money_manage .bar_box input{
   width: 202px;
   height: 6px;
-  background: #C4C4C4;
-  border-radius: 3px;
-  /* .bar_box에서 중앙정렬을 위해 */
-  position: absolute;
   top: 3px;
   left: 32px;
 }
 
-.money_manage .bar_box input:focus {
-  outline: none;
-}
-
-/* input 바 컨트롤 버튼 설정 */
-.money_manage .bar_box input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 4px;
-  height: 17px;
-  background: #FF5F00;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.money_manage .bar_box input::-moz-range-thumb {
-  -webkit-appearance: none;
-  width: 4px;
-  height: 17px;
-  background: #FF5F00;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
 /* 버튼 - 그래프 */
-.bank_acct_box .link_chart {
+.bank_acct_box #link_chart {
   position: absolute;
   /* background-color: red; */
 
@@ -209,7 +224,7 @@ main .bank_acct_box {
   right: 19px;
 }
 
-.bank_acct_box .link_chart img {
+.bank_acct_box #link_chart img {
   width: 14px;
   height: 14px;
 }
@@ -245,29 +260,25 @@ main .notice a {
 
 /*  ? main page section 2 지출내역*/
 section.bank_use_history {
-  height: 360px;
-  padding: 25px 30px 6px;
-  /* box-sizing: border-box; */
+  height:630px;
+  padding: 25px 30px 0;
+  box-sizing: border-box;
   border-radius: 30px 30px 0px 0px;
-  overflow: hidden; 
-
+  
+  transition: 0.5s;
   background-color: var(--use_history_bgc);
   position: relative;
 }
 /* 버튼 눌렀을 때 */
 section.bank_use_history.wide {
-height: 600px;
-position: absolute;
-top:62px;
-left: 0;
-right: 0;
-bottom: 0;
+  transform:translateY(-245px)
 }
 /* 드래그 버튼 */
 .bank_use_history .drag_btn {
   width: 48px;
   height: 2.15px;
   border-radius: 4px;
+  
 
   position: absolute;
   top:4.3px;
@@ -366,30 +377,25 @@ bottom: 0;
   
   margin-top: 16px;
   padding: 0 6px;
+  padding-bottom: 10px;
   box-sizing: border-box;
-
+  /* height: 293px; */
   position: absolute;
   top: 76px;
   right: 30px;
   left: 30px;
-  bottom: 10px;
+  bottom: 0;
   overflow-y: scroll;
-  /* 스크롤바 제거*/
-  -ms-overflow-style: none;  
-  /* Internet Explorer */
-  scrollbar-width: none;  
-  /* Firefox 64 */
+  
 
 }
-.bank_use_history .use_history_detail::-webkit-scrollbar {
-  display: none;
-}
+
 .use_history_detail ul.use_list_All > li+li{
   margin-top: 38px;
 }
 /* 날짜와 지출 합계*/
 .use_history_detail ul.use_list_All  .dayAndSum{
-  overflow:hidden;
+  overflow:hidden; /*자식요소 감싸주기*/
   margin-bottom: 5px;
 }
 .use_history_detail ul.use_list_All  .dayAndSum .__day{
@@ -407,7 +413,7 @@ ul.use_list_All ul.use_list_daily li{
   /* background-color: lawngreen; */
   padding: 7px 0;
   border-bottom: 1px solid #DCDCDC;
-  overflow: hidden;
+  overflow: hidden; /* 자식요소 감싸기*/
   font-size: 18px;
 
 }
@@ -427,8 +433,169 @@ ul.use_list_All ul.use_list_daily li{
   color: #FF5F00;
 }
 
+/* ! page 2. div.manage_budget */
+.manage_budget{
+  width: 100%;
+  height: 100%;
+  padding: 33px 30px 0 30px;
+  
+  box-sizing: border-box;
+  background-color: var(--page_manage_budget_bgc);
+  transition: .5s;
+  position: absolute;
+}
+.manage_budget.opened{
+  transform:translateY(-690px);
+  /* top: 0px; */
+  
+}
+.manage_budget .header{
+  width: 100%;
+  line-height: 30px;
+  position: fixed;
+  background-color: #FFFFFF;
+}
+.manage_budget section+section{
+  margin-top: 46px;
+}
 
-/* 하단 네비게이션 */
+.manage_budget h1{
+  font-size: 24px;
+  padding-bottom: 10px;
+  /* position: fixed; */
+  /* top: 10px; */
+}
+/* 닫기 버튼*/
+.manage_budget #btn_close{
+  position: absolute;
+  top: 21px;
+  right: 21px;
+  
+  /* position: fixed;
+  top: 0;
+  right: 0; */
+  
+}
+/* 기준 금액 설정 */
+.manage_budget .set_budget{
+  margin: 12px 0;
+  line-height: 30px;
+
+}
+.manage_budget .set_budget h3{
+  float: left;
+  color: #444444;
+  font-size: 18px;
+}
+.manage_budget .set_budget span{
+  float: right;
+  color: #FF5F00;
+  font-size: 24px;
+  letter-spacing: -0.24px;
+  margin-bottom: 24px;
+}
+.set_budget .bar_box {
+  clear: both;
+}
+.set_budget .bar_box input{
+  width: 313px;
+  height: 9px;
+  top: 2px;
+  clear: both;
+ }
+/* ? 월간 리포트 */
+.daily_report{
+  /* background-color: #FF5F00; */
+  font-size: 18px;
+  color: #444444;
+  overflow:hidden
+}
+.daily_report h3{
+  line-height: 27px;
+  margin-bottom: 17px;
+}
+.daily_report .mix_chartbox{
+  width: 100%;
+  overflow-x: scroll;
+}
+/* .daily_report #mixed-chart{} */
+.manage_budget .data_chart{
+  overflow-y:scroll ;
+  position: absolute;
+  top: 76px;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+
+}
+/*  -월 지출 패턴 */
+.monthly_out_pattern h3{
+color: #444444;
+line-height: 27px;
+font-size: 18px;
+
+}
+/* ? 도넛 차트 */
+.doughnut_graph{
+  position: relative;
+  
+}
+ .doughnut_graph canvas{
+  margin: 14px auto;
+  /* background-color: red; */
+}
+.doughnut_graph canvas.element.style {
+  width: 308px;
+  height: 308px;
+}
+
+.doughnut_graph .doughnut__num{
+  position: absolute;
+  width: 118px;
+  /* height: 36px; */
+  line-height: 36px;
+
+  top:calc(50% - 15px);
+  left:calc(50% - 59px );
+}
+.doughnut_graph .doughnut__num .__num{font-size: 24px;}
+.doughnut_graph .doughnut__num .__won{font-size: 14px;}
+
+/* ? 지출 카테고리 */
+.out_category{
+  padding: 0 7px 31px;
+}
+.out_category li{
+  height: 36px;
+  line-height: 36px;
+  font-size: 18px;
+  font-weight: 350;
+  overflow:hidden ;
+}
+.out_category li img{
+  float: left;
+  margin-top: 7px;
+}
+
+.out_category li+li{
+  margin-top: 10px;
+}
+.out_category li .__name{
+  position: absolute;
+  left: 55px;
+}
+.out_category li .__price{ 
+
+  float: right;
+  color: #858585;
+}
+
+
+
+
+
+
+/* ? 하단 네비게이션 */
 .container nav {
   width: 100%;
   height: 76px;
