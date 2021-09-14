@@ -7,7 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="./CSS/style.css">
-  <script src="./main.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script defer src="./main.js" defer></script>
+  <!-- <script src="./donut.js"></script> -->
+  <script src='https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js'></script>
+
 
   <title>Document</title>
 </head>
@@ -16,18 +20,19 @@
   <div class="container">
     <div class="safe_area"></div>
     <div class="app_screen">
+      <!-- 홈화면 -->
       <main>
         <header>
           <a><img src="./images/profile.svg" alt="프로필"></a>
           <h1>생활비</h1>
           <ul>
             <li aria-label="QR">
-              <button>
+              <button id="link_QR">
                 <img src="./images/QR.svg" alt="QR">
               </button>
             </li>
             <li aria-label="검색">
-              <button>
+              <button id="link_search">
                 <img src="./images/search.svg" alt="검색">
               </button>
             </li>
@@ -39,12 +44,12 @@
             <div class="bank_money">
               <span class="money_num">1,240,000</span>
               원</div>
-            <div><button class="link_send">이체</button></div>
+            <div><button id="link_send">이체</button></div>
             <div class="money_manage">
               <div class="bar_box">
                 <input type="range">
               </div>
-              <button class="link_chart"><img src="./images/bar_chart.svg" alt="차트" /></button>
+              <button id="link_chart"><img src="./images/bar_chart.svg" alt="차트" /></button>
               <div class="money_left"><span>5일 동안 210,000원 남음</span></div>
             </div>
           </div>
@@ -74,7 +79,7 @@
               </li>
             </ul>
           </div>
-          <div class="use_history_detail">
+          <div class="use_history_detail scroll">
             <ul class="use_list_All">
               <!-- 오늘 사용내역 -->
               <li>
@@ -137,7 +142,7 @@
               <!-- 2일전 -->
               <li>
                 <div class="dayAndSum">
-                  <span class="__day">오늘</span>
+                  <span class="__day">2일전</span>
                   <span class="__sum">127,600원</span>
                 </div>
                 <ul class="use_list_daily">
@@ -166,7 +171,7 @@
               <!-- 3일전 -->
               <li>
                 <div class="dayAndSum">
-                  <span class="__day">오늘</span>
+                  <span class="__day">3일전</span>
                   <span class="__sum">127,600원</span>
                 </div>
                 <ul class="use_list_daily">
@@ -192,13 +197,57 @@
                   </li>
                 </ul>
               </li>
-
-
             </ul>
           </div>
         </section>
       </main>
+      <!-- 지출관리 설정 page -->
+      <div class="manage_budget ">
+        <!-- ! 헤더 -->
+        <!-- <div class="header"> -->
+        <h1>지출관리</h1>
+        <!-- </div> -->
+
+        <!-- ! 스크롤?-->
+        <div class="data_chart scroll">
+          <section class="set_budget">
+            <h3>기준금액설정</h3>
+            <span>2,100,000원</span>
+            <div class="bar_box">
+              <input type="range">
+            </div>
+          </section>
+          <section class="daily_report">
+            <h3>일간 리포트</h3>
+            <div class="mix_chartbox scroll">
+              <canvas id="mixed-chart" width="465" height="198"></canvas>
+            </div>
+          </section>
+          <section class="monthly_out_pattern">
+            <h3>6월 지출 패턴</h3>
+            <div class="doughnut_graph ">
+              <canvas class="scroll" id="doughnut-chart" width="300" height="300"></canvas>
+              <div class="doughnut__num"><span class="__num">1,736,500</span><span class="__won">원</span></div>
+            </div>
+            <ul class="out_category">
+              <li><img src="./images/fuel.svg" /><span class="__name ">주유비</span><span
+                  class="__price right">50,000원</span></li>
+              <li><img src="./images/health.svg" /><span class="__name ">건강관리비</span><span
+                  class="__price right">80,000원</span></li>
+              <li><img src="./images/eating_out.svg" /><span class="__name">외식비</span><span
+                  class="__price right">233,000원</span></li>
+              <li><img src="./images/shopping.svg" /><span class="__name ">장보기</span><span
+                  class="__price right">390,000원</span></li>
+              <li><img src="./images/store.svg" /><span class="__name ">상점</span><span
+                  class="__price right">46,000원</span></li>
+            </ul>
+          </section>
+        </div>
+        <!-- ! -->
+        <button id="btn_close">닫기</button>
+      </div>
     </div>
+    <!-- 하단 메뉴 -->
     <nav>
       <ul>
         <li aria-label="홈버튼"><a>
