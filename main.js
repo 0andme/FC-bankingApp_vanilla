@@ -89,8 +89,8 @@ function dataload() {
   // 일별,월별 + 카테고리별 지출 금액 계산 함수
   dailySpend = calc_DailySpend();
   cateMonthSpend = calc_CateMonthSpend();
-  // console.log(cateMonthSpend)
   monthSpend = calc_MonthSpend();
+
   // 1. 사용 내역 list에 data넣기
   make_Uselist();
 
@@ -98,10 +98,8 @@ function dataload() {
   // 2.1 믹스 차트
   add_data_To_mix();
   // 2.2 도넛 차트
-  // cate_month_Spend.forEach(add_data_To_doughnut);
   add_data_To_doughnut();
-  // 2.2.1 카테고리 별 데이터 넣기
-  // add_data_To_cate_ul();
+  
 }
 
 // 1. 사용 내역 list에 data넣는 함수
@@ -376,7 +374,8 @@ function add_data_To_doughnut() {
     _h3.textContent = MonthList[i] + "월 지출 패턴";
     _div_canvas.height = "300"
     _div_canvas.width = "300"
-    _div_div_spanNum.textContent = monthSpend[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원";
+    _div_div_spanNum.textContent = monthSpend[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    _div_div_spanwon.textContent="원";
     // 자식 요소 연결
     monthly_out_pattern.appendChild(_h3);
     monthly_out_pattern.appendChild(_div);
