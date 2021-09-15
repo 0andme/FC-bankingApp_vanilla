@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="./CSS/style.css">
+  <!-- chart js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <script defer src="./main.js" defer></script>
   <title>Document</title>
@@ -16,7 +18,7 @@
   <div class="container">
     <!-- 디바이스 상단 영역 -->
     <div class="safe_area"></div>
-    <!-- 페이지 하단 메뉴 -->
+    <!-- 페이지 하단 네비게이션 영역 -->
     <nav>
       <ul>
         <li aria-label="홈버튼"><a>
@@ -40,8 +42,9 @@
         </li>
       </ul>
     </nav>
+    <!-- 네비게이션 부분을 제외한 앱화면 전체 영역-->
     <div class="app_screen">
-      <!-- 홈화면 -->
+      <!-- 1. main page-->
       <main>
         <header>
           <a><img src="./images/profile.svg" alt="프로필"></a>
@@ -107,7 +110,7 @@
           </div>
         </section>
       </main>
-      <!-- 지출관리 설정 page -->
+      <!-- 2. 지출관리 설정 page -->
       <div class="manage_budget ">
         <h1>지출관리</h1>
         <div class="data_chart scroll">
@@ -131,9 +134,6 @@
         <button id="btn_close">닫기</button>
       </div>
     </div>
-    <!-- 하단 메뉴 -->
-    
-
   </div>
 </body>
 
