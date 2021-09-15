@@ -1,6 +1,5 @@
 :root {
   --page_home_bgc: #EEEBE5;
-  /* --page_home_bgc:red; */
   --use_history_bgc: #F5F5F5;
   --nav_bgc: #00C7A3;
   --page_manage_budget_bgc:#FFFFFF;
@@ -9,23 +8,24 @@
   --base_font_weight: 500;
   --base_font_st: normal;
   --base_font_color: #000000;
-  /* var(); */
+  --text_color_orange: #FF5F00;
 }
 
-/* ! common */
+/* ! 공통 common */
 a,
 img {
   display: block;
 }
-/* 스크롤바 제거*/
+a{cursor:pointer;}
+/* ? "scroll" 클래스를 갖는 요소들의 스크롤 바 제거*/
 .scroll{
   -ms-overflow-style: none;  /* Internet Explorer */
   scrollbar-width: none;  /* Firefox 64 */
 }
-.scroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar { /* 크롬 사파리*/
   display: none;
 }
-/* input 바  */
+/* ? input 바  */
 .bar_box {
 
   height: 17px;
@@ -60,8 +60,7 @@ img {
   border-radius: 2px;
   cursor: pointer;
 }
-a{cursor:pointer;}
-/* ! reset css를 파일로 가져와서 추가하는 것은 어떤가 */
+/* 버튼 스타일 초기화 */
 button {
   background-color: transparent;
   border-style: none;
@@ -69,14 +68,14 @@ button {
   padding: 0;
   cursor:pointer;
 }
-
+/* 전체 font 설정 */
 html {
   font-family: var(--base_font_fam);
   font-weight: var(--base_font_weight);
   color: var(base_font_color);
 }
 
-/* 화면 전체*/
+/* ! 화면 전체*/
 .container {
   width: 375px;
   height: 812px;
@@ -95,7 +94,7 @@ html {
 
 }
 
-/* 화면중앙에 해당되는 부분 */
+/* 화면 중앙에 해당되는 부분 */
 .container .app_screen {
   width: 100%;
   position: absolute;
@@ -155,7 +154,7 @@ main header ul li+li {
   margin-left: 18px;
 }
 
-/* ? main page section 1  bank_acct_info */
+/* ? main page section 1  .bank_acct_info */
 main .bank_acct_info {
   margin-top: 21px;
   padding: 3px 48px;
@@ -201,7 +200,7 @@ main .bank_acct_box {
   padding: 0;
 }
 
-/**돈 관리 부분 */
+/** 돈 관리 부분 */
 .bank_acct_box .money_manage {
   position: relative;
 }
@@ -228,7 +227,7 @@ main .bank_acct_box {
   width: 14px;
   height: 14px;
 }
-
+/* 남은 요일과 금액 */
 .bank_acct_box .money_left {
   margin-top: 8px;
   line-height: 21px;
@@ -291,18 +290,11 @@ section.bank_use_history.wide {
   height: 47px;
   border-radius: 6px;
   overflow-x: scroll;
-  /* 스크롤바 제거*/
-  /* Internet Explorer */
-  -ms-overflow-style: none; 
-  /* Firefox 64 */
-  scrollbar-width: none; 
+  
 
   
 }
-/* Safari, Chrome 에서 스크롤바 제거 */
- .saving::-webkit-scrollbar {
-  display: none;
-}
+
  .saving ul{
   display: flex;
 
