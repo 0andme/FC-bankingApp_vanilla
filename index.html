@@ -9,14 +9,37 @@
   <link rel="stylesheet" href="./CSS/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <script defer src="./main.js" defer></script>
-
-
   <title>Document</title>
 </head>
 
 <body>
   <div class="container">
+    <!-- 디바이스 상단 영역 -->
     <div class="safe_area"></div>
+    <!-- 페이지 하단 메뉴 -->
+    <nav>
+      <ul>
+        <li aria-label="홈버튼"><a>
+            <img src="./images/account.svg " alt="HOME">
+          </a>
+        </li>
+        <li aria-label="계좌이동">
+          <a>
+            <img src="./images/settings.svg" alt="계좌이동">
+          </a>
+        </li>
+        <li aria-label="메시지">
+          <a>
+            <img src="./images/chatting.svg" alt="메시지">
+          </a>
+        </li>
+        <li aria-label="설정">
+          <a>
+            <img src="./images/etc.svg" alt="설정">
+          </a>
+        </li>
+      </ul>
+    </nav>
     <div class="app_screen">
       <!-- 홈화면 -->
       <main>
@@ -79,7 +102,7 @@
           </div>
           <div class="use_history_detail scroll">
             <ul class="use_list_All">
-              
+              <!-- !  -->
             </ul>
           </div>
         </section>
@@ -102,36 +125,14 @@
             </div>
           </section>
           <section class="monthly_out_pattern">
-            
+            <!-- ! -->
           </section>
         </div>
         <button id="btn_close">닫기</button>
       </div>
     </div>
     <!-- 하단 메뉴 -->
-    <nav>
-      <ul>
-        <li aria-label="홈버튼"><a>
-            <img src="./images/account.svg " alt="HOME">
-          </a>
-        </li>
-        <li aria-label="계좌이동">
-          <a>
-            <img src="./images/settings.svg" alt="계좌이동">
-          </a>
-        </li>
-        <li aria-label="메시지">
-          <a>
-            <img src="./images/chatting.svg" alt="메시지">
-          </a>
-        </li>
-        <li aria-label="설정">
-          <a>
-            <img src="./images/etc.svg" alt="설정">
-          </a>
-        </li>
-      </ul>
-    </nav>
+    
 
   </div>
 </body>
