@@ -437,35 +437,3 @@ function add_data_To_doughnut() {
 
 
 
-// 카테고리별 총 지출 금액을 리스트에 데이터 넣는 함수
-function add_data_To_cate_ul() {
-  const imgSrcList = [
-    "./images/eating_out.svg",
-    "./images/health.svg",
-    "./images/store.svg",
-    "./images/fuel.svg",
-    "./images/shopping.svg",
-  ]
-
-  for (let i = 0; i < cateList.length; i++) {
-    // 요소 만들기
-    const _li = document.createElement("li");
-    const _li_img = document.createElement("img");
-    const _li_spanName = document.createElement("span");
-    const _li_spanPrice = document.createElement("span");
-    // 클래스 넣기
-    _li_spanName.className = "__name"
-    _li_spanPrice.className = "__price right"
-    // 데이터 넣기
-    _li_img.src = imgSrcList[i];
-    _li_spanName.textContent = cateList[i];
-    _li_spanPrice.textContent = cateSpend[i] + " 원";
-
-    // 자식요소 연결
-    category.appendChild(_li);
-    _li.appendChild(_li_img);
-    _li.appendChild(_li_spanName);
-    _li.appendChild(_li_spanPrice);
-  }
-
-}
