@@ -1,82 +1,94 @@
 :root {
   --page_home_bgc: #EEEBE5;
-  /* --page_home_bgc:red; */
   --use_history_bgc: #F5F5F5;
   --nav_bgc: #00C7A3;
-  --page_manage_budget_bgc:#FFFFFF;
+  --page_manage_budget_bgc: #FFFFFF;
 
   --base_font_fam: Noto Sans CJK KR;
   --base_font_weight: 500;
   --base_font_st: normal;
   --base_font_color: #000000;
-  /* var(); */
+  --color_orange: #FF5F00;
 }
 
-/* ! common */
+/* ! 공통 common */
 a,
 img {
   display: block;
 }
-/* 스크롤바 제거*/
-.scroll{
-  -ms-overflow-style: none;  /* Internet Explorer */
-  scrollbar-width: none;  /* Firefox 64 */
+
+a {
+  cursor: pointer;
 }
+
+/* ? "scroll" 클래스를 갖는 요소들의 스크롤 바 제거*/
+.scroll {
+  -ms-overflow-style: none;
+  /* Internet Explorer */
+  scrollbar-width: none;
+  /* Firefox 64 */
+}
+
 .scroll::-webkit-scrollbar {
+  /* 크롬 사파리*/
   display: none;
 }
-/* input 바  */
+
+/* ? input 바  */
 .bar_box {
 
   height: 17px;
   position: relative;
 }
- .bar_box input {
+
+.bar_box input {
   -webkit-appearance: none;
   background: #C4C4C4;
   border-radius: 3px;
   /* .bar_box에서 중앙정렬을 위해 */
   position: absolute;
-  
+
 }
- .bar_box input:focus {
+
+.bar_box input:focus {
   outline: none;
 }
 
- .bar_box input::-webkit-slider-thumb {
+.bar_box input::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 4px;
   height: 17px;
-  background: #FF5F00;
+  background: var(--color_orange);
   border-radius: 2px;
   cursor: pointer;
 }
 
- .bar_box input::-moz-range-thumb {
+.bar_box input::-moz-range-thumb {
   -webkit-appearance: none;
   width: 4px;
   height: 17px;
-  background: #FF5F00;
+  background: var(--color_orange);
   border-radius: 2px;
   cursor: pointer;
 }
-a{cursor:pointer;}
-/* ! reset css를 파일로 가져와서 추가하는 것은 어떤가 */
+
+/* 버튼 스타일 초기화 */
 button {
   background-color: transparent;
   border-style: none;
   margin: 0;
   padding: 0;
-  cursor:pointer;
+  cursor: pointer;
 }
 
+/* 전체 font 설정 */
 html {
   font-family: var(--base_font_fam);
   font-weight: var(--base_font_weight);
-  color: var(base_font_color);
+  color: var(--base_font_color);
 }
 
-/* 화면 전체*/
+/* ! 화면 전체*/
 .container {
   width: 375px;
   height: 812px;
@@ -95,13 +107,13 @@ html {
 
 }
 
-/* 화면중앙에 해당되는 부분 */
+/* 화면 중앙에 해당되는 부분 */
 .container .app_screen {
   width: 100%;
   position: absolute;
   top: 44px;
   bottom: 76px;
-  overflow:hidden ;
+  overflow: hidden;
 }
 
 .container .app_screen main {
@@ -110,8 +122,9 @@ html {
 
   background-color: var(--page_home_bgc);
 }
+
 /* ! page 1-main */
-main{
+main {
   position: relative;
   overflow: hidden;
 }
@@ -155,7 +168,7 @@ main header ul li+li {
   margin-left: 18px;
 }
 
-/* ? main page section 1  bank_acct_info */
+/* ? main page section 1  .bank_acct_info */
 main .bank_acct_info {
   margin-top: 21px;
   padding: 3px 48px;
@@ -201,14 +214,14 @@ main .bank_acct_box {
   padding: 0;
 }
 
-/**돈 관리 부분 */
+/** 돈 관리 부분 */
 .bank_acct_box .money_manage {
   position: relative;
 }
 
 
 /* 홈의 input 바 */
-.money_manage .bar_box input{
+.money_manage .bar_box input {
   width: 202px;
   height: 6px;
   top: 3px;
@@ -229,6 +242,7 @@ main .bank_acct_box {
   height: 14px;
 }
 
+/* 남은 요일과 금액 */
 .bank_acct_box .money_left {
   margin-top: 8px;
   line-height: 21px;
@@ -260,54 +274,48 @@ main .notice a {
 
 /*  ? main page section 2 지출내역*/
 section.bank_use_history {
-  height:630px;
+  height: 630px;
   padding: 25px 30px 0;
   box-sizing: border-box;
   border-radius: 30px 30px 0px 0px;
-  
+
   transition: 0.5s;
   background-color: var(--use_history_bgc);
   position: relative;
 }
+
 /* 버튼 눌렀을 때 */
 section.bank_use_history.wide {
-  transform:translateY(-245px)
+  transform: translateY(-245px)
 }
+
 /* 드래그 버튼 */
 .bank_use_history .drag_btn {
   width: 48px;
   height: 2.15px;
   border-radius: 4px;
-  
+
 
   position: absolute;
-  top:4.3px;
-  left: calc(50% - (48px/2) );
+  top: 4.3px;
+  left: calc(50% - (48px/2));
   background-color: #C4C4C4;
 }
+
 /* 저금통 리스트 */
-.bank_use_history .saving{
-  
+.bank_use_history .saving {
+
   height: 47px;
   border-radius: 6px;
   overflow-x: scroll;
-  /* 스크롤바 제거*/
-  /* Internet Explorer */
-  -ms-overflow-style: none; 
-  /* Firefox 64 */
-  scrollbar-width: none; 
+}
 
-  
-}
-/* Safari, Chrome 에서 스크롤바 제거 */
- .saving::-webkit-scrollbar {
-  display: none;
-}
- .saving ul{
+.saving ul {
   display: flex;
 
 }
- .saving ul li{
+
+.saving ul li {
   width: 162px;
   height: 47px;
   flex-shrink: 0;
@@ -316,10 +324,12 @@ section.bank_use_history.wide {
   position: relative;
   background-color: #DADADA;
 }
- .saving ul li+li{
+
+.saving ul li+li {
   margin-left: 13px;
 }
-.saving ul li span{
+
+.saving ul li span {
   display: block;
   background: transparent;
   position: absolute;
@@ -328,28 +338,32 @@ section.bank_use_history.wide {
   line-height: 18px;
 
 }
-.saving ul li span.__name{
-  top:5px;
-  left:13px;
+
+.saving ul li span.__name {
+  top: 5px;
+  left: 13px;
 }
-.saving ul li span.__num{
+
+.saving ul li span.__num {
   bottom: 5px;
   left: 13px;
 }
 
-.saving ul li .color_box{
+.saving ul li .color_box {
   width: 97px;
   height: 100%;
-  background-color: #FF5F00;
+  background-color: var(--color_orange);
   border-radius: 6px 0 0 6px;
 }
+
 /* 저금통 만들기 부분 */
-.saving ul li.new_saving{
+.saving ul li.new_saving {
   background-color: transparent;
 }
-.saving ul li.new_saving a{
+
+.saving ul li.new_saving a {
   height: inherit;
-  
+
   padding: 5px;
   box-sizing: border-box;
 
@@ -357,24 +371,26 @@ section.bank_use_history.wide {
   align-items: center;
 
 }
-.saving ul li.new_saving a img{
+
+.saving ul li.new_saving a img {
   height: 24px;
   width: 24px;
-  
+
 }
 
-.saving ul li.new_saving a span{
-  color: #FF5F00;
+.saving ul li.new_saving a span {
+  color:var(--base_font_color);
   margin-left: 29px;
 
 }
 
 /* 지출 내역  */
-.bank_use_history{  
+.bank_use_history {
   position: relative;
 }
-.bank_use_history .use_history_detail{
-  
+
+.bank_use_history .use_history_detail {
+
   margin-top: 16px;
   padding: 0 6px;
   padding-bottom: 10px;
@@ -386,141 +402,162 @@ section.bank_use_history.wide {
   left: 30px;
   bottom: 0;
   overflow-y: scroll;
-  
+
 
 }
 
-.use_history_detail ul.use_list_All > li+li{
+.use_history_detail ul.use_list_All>li+li {
   margin-top: 38px;
 }
+
 /* 날짜와 지출 합계*/
-.use_history_detail ul.use_list_All  .dayAndSum{
-  overflow:hidden; /*자식요소 감싸주기*/
+.use_history_detail ul.use_list_All .dayAndSum {
+  overflow: hidden;
+  /*자식요소 감싸주기*/
   margin-bottom: 5px;
 }
-.use_history_detail ul.use_list_All  .dayAndSum .__day{
-  float:left;
+
+.use_history_detail ul.use_list_All .dayAndSum .__day {
+  float: left;
   font-weight: 700;
 
 }
-.use_history_detail ul.use_list_All  .dayAndSum .__sum{
+
+.use_history_detail ul.use_list_All .dayAndSum .__sum {
   float: right;
   color: #B4B4B4;
 }
 
 /* 하루 사용 내역 */
-ul.use_list_All ul.use_list_daily li{
+ul.use_list_All ul.use_list_daily li {
   /* background-color: lawngreen; */
   padding: 7px 0;
   border-bottom: 1px solid #DCDCDC;
-  overflow: hidden; /* 자식요소 감싸기*/
+  overflow: hidden;
+  /* 자식요소 감싸기*/
   font-size: 18px;
 
 }
- ul.use_list_All ul.use_list_daily li .__name{
+
+ul.use_list_All ul.use_list_daily li .__name {
   font-weight: 350;
   float: left;
 }
- ul.use_list_All ul.use_list_daily li .__price{
+
+ul.use_list_All ul.use_list_daily li .__price {
   font-weight: 300;
   float: right;
 }
+
 /* 입금 내역이라면*/
- ul.use_list_All ul.use_list_daily li .__price.in::before{
+ul.use_list_All ul.use_list_daily li .__price.in::before {
   content: " + ";
 }
- ul.use_list_All ul.use_list_daily li .__price.in{
-  color: #FF5F00;
+
+ul.use_list_All ul.use_list_daily li .__price.in {
+  color: var(--color_orange);
 }
 
 /* ! page 2. div.manage_budget */
-.manage_budget{
+.manage_budget {
   width: 100%;
   height: 100%;
   padding: 33px 30px 0 30px;
-  
+
   box-sizing: border-box;
   background-color: var(--page_manage_budget_bgc);
   transition: .5s;
   position: absolute;
 }
-.manage_budget.opened{
-  transform:translateY(-690px);
+
+.manage_budget.opened {
+  transform: translateY(-690px);
   /* top: 0px; */
-  
+
 }
-.manage_budget .header{
+
+.manage_budget .header {
   width: 100%;
   line-height: 30px;
   position: fixed;
   background-color: #FFFFFF;
 }
-.manage_budget section+section{
+
+.manage_budget section+section {
   margin-top: 46px;
 }
 
-.manage_budget h1{
+.manage_budget h1 {
   font-size: 24px;
   padding-bottom: 10px;
   /* position: fixed; */
   /* top: 10px; */
 }
+
 /* 닫기 버튼*/
-.manage_budget #btn_close{
+.manage_budget #btn_close {
   position: absolute;
   top: 21px;
   right: 21px;
-  
+
   /* position: fixed;
   top: 0;
   right: 0; */
-  
+
 }
+
 /* 기준 금액 설정 */
-.manage_budget .set_budget{
+.manage_budget .set_budget {
   margin: 12px 0;
   line-height: 30px;
 
 }
-.manage_budget .set_budget h3{
+
+.manage_budget .set_budget h3 {
   float: left;
   color: #444444;
   font-size: 18px;
 }
-.manage_budget .set_budget span{
+
+.manage_budget .set_budget span {
   float: right;
-  color: #FF5F00;
+  color: var(--color_orange);
   font-size: 24px;
   letter-spacing: -0.24px;
   margin-bottom: 24px;
 }
+
 .set_budget .bar_box {
   clear: both;
 }
-.set_budget .bar_box input{
+
+.set_budget .bar_box input {
   width: 313px;
   height: 9px;
   top: 2px;
   clear: both;
- }
+}
+
 /* ? 월간 리포트 */
-.daily_report{
-  /* background-color: #FF5F00; */
+.daily_report {
   font-size: 18px;
   color: #444444;
-  overflow:hidden
+  overflow: hidden
 }
-.daily_report h3{
+
+.daily_report h3 {
   line-height: 27px;
   margin-bottom: 17px;
 }
-.daily_report .mix_chartbox{
+
+.daily_report .mix_chartbox {
   width: 100%;
   overflow-x: scroll;
 }
+
 /* .daily_report #mixed-chart{} */
-.manage_budget .data_chart{
-  overflow-y:scroll ;
+.manage_budget .data_chart {
+  overflow-y: scroll;
   position: absolute;
   top: 76px;
   bottom: 0;
@@ -528,70 +565,79 @@ ul.use_list_All ul.use_list_daily li{
   right: 30px;
 
 }
+
 /*  -월 지출 패턴 */
-.monthly_out_pattern h3{
-color: #444444;
-line-height: 27px;
-font-size: 18px;
+.monthly_out_pattern h3 {
+  color: #444444;
+  line-height: 27px;
+  font-size: 18px;
 
 }
+
 /* ? 도넛 차트 */
-.doughnut_graph{
+.doughnut_graph {
   position: relative;
-  
+
 }
- .doughnut_graph canvas{
+
+.doughnut_graph canvas {
   margin: 14px auto;
   /* background-color: red; */
 }
+
 .doughnut_graph canvas.element.style {
   width: 308px;
   height: 308px;
 }
 
-.doughnut_graph .doughnut__num{
+.doughnut_graph .doughnut__num {
   position: absolute;
   width: 100%;
   line-height: 36px;
   text-align: center;
-  top:calc(50% - 15px);
+  top: calc(50% - 15px);
 }
-.doughnut_graph .doughnut__num .__num{font-size: 24px;}
-.doughnut_graph .doughnut__num .__won{font-size: 14px;}
+
+.doughnut_graph .doughnut__num .__num {
+  font-size: 24px;
+}
+
+.doughnut_graph .doughnut__num .__won {
+  font-size: 14px;
+}
 
 /* ? 지출 카테고리 */
-.out_category{
+.out_category {
   padding: 0 7px 31px;
 }
-.out_category li{
+
+.out_category li {
   height: 36px;
   line-height: 36px;
   font-size: 18px;
   font-weight: 350;
-  overflow:hidden ;
+  overflow: hidden;
 }
-.out_category li img{
+
+.out_category li img {
   float: left;
   margin-top: 7px;
 }
 
-.out_category li+li{
+.out_category li+li {
   margin-top: 10px;
 }
-.out_category li .__name{
+
+.out_category li .__name {
   position: absolute;
   left: 55px;
 }
-.out_category li .__price{ 
+
+.out_category li .__price {
 
   float: right;
   color: #858585;
 }
-
-
-
-
-
 
 /* ? 하단 네비게이션 */
 .container nav {
