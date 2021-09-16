@@ -303,7 +303,7 @@ function calc_MonthSpend() {
   return monthSpend;
 }
 
-//  Mixed chart
+//  Mixed chart data넣는 함수
 function add_data_To_mix() {
   //chart 생성 
   const data = calc_DailySpend();
@@ -342,7 +342,7 @@ function add_data_To_mix() {
   });
 }
 
-//  doughnut-chart
+//  doughnut-chart data넣는 함수
 function add_data_To_doughnut() {
   const monthly_out_pattern = document.querySelector(".monthly_out_pattern");
   const imgSrcList = [
